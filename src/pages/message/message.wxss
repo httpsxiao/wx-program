@@ -1,0 +1,7 @@
+/* pages/message/message.wxss */
+page {
+  background-color: #f6f6f6;
+}
+.container {
+  padding-top: 30rpx;
+}

@@ -1,0 +1,11 @@
+<import src="../per-template/per-template.wxml" />
+
+<template name="panelTemplate">
+  <view class="grid-container">
+    <block wx:for="{{movies}}" wx:for-item="movie" wx:for-index="index" wx:key="index">
+      <view class="single-view-container">
+        <template is="perTemplate" data="{{...movie}}" />
+      </view>
+    </block>
+  </view>
+</template>

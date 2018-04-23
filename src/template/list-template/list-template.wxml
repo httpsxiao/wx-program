@@ -1,0 +1,21 @@
+<import src="../per-template/per-template.wxml" />
+
+<template name="listTemplate">
+
+    <view class="list-container">
+        <view class="box">
+            <view class="list-head">
+                <text class="list-desc">{{desc}}</text>
+                <view catchtap="goMore" class="list-more" data-desc="{{desc}}">
+                    <text class="more-text">更多</text>
+                    <image class="more-image" src="/images/icon/arrow-right.png"></image>
+                </view>
+            </view>
+            <view class="movies">
+                <block wx:for="{{movies}}" wx:for-item="movie" wx:for-index="idx" wx:key="idx">
+                    <template is="perTemplate" data="{{...movie}}" />
+                </block>
+            </view>
+        </view>
+    </view>
+</template>

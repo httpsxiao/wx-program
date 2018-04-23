@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/message/message",
+    "pages/welcome/welcome",
+    "pages/movies/movies",
+    "pages/search/search",
+    "pages/more/more",
+    "pages/detail/detail",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#afe565"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#666",
+    "selectedColor": "#afe565",
+    "list": [
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "影讯",
+        "iconPath": "images/tab/movie.png",
+        "selectedIconPath": "images/tab/movie_active.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "images/tab/search.png",
+        "selectedIconPath": "images/tab/search_active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "留言",
+        "iconPath": "images/tab/message.png",
+        "selectedIconPath": "images/tab/message_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tab/mine.png",
+        "selectedIconPath": "images/tab/mine_active.png"
+      }
+    ]
+  }
+}

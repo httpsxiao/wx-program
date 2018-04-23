@@ -1,0 +1,11 @@
+<import src="../stars-template/stars-template" />
+
+<template name="perTemplate">
+
+    <view class="per-container" catchtap="goDetail" data-movieId="{{movieId}}">
+        <image class="per-image" src="{{coverageUrl}}"></image> 
+        <text class="per-title">{{title}}</text>
+        <template is="starsTemplate" data="{{average:average,stars:stars}}" />
+    </view>
+
+</template>

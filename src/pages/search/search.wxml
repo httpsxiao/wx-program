@@ -1,0 +1,16 @@
+<import src="../../template/panel-template/panel-template.wxml" />
+
+<!--搜索框-->
+<view class="search">
+    <input type="text" maxlength="10" placeholder="黑豹" placeholder-class="placeholder" value="{{userValue}}" bindinput="onInput" bindconfirm="onConfirm" />
+    <icon type="cancel" class="search-icon" size="15" color="#405f00" wx:if="{{searchPanelShow}}" bindtap="onCancel"></icon>
+    <icon type="search" class="search-icon" size="15" color="#405f00" wx:else bindtap="onConfirm"></icon>
+</view>
+
+<view class="search-panel" wx:if="{{searchPanelShow}}">
+    <template is="panelTemplate" data="{{movies}}" />
+</view>
+
+<view class="no-search-panel" wx:else>
+    <text>暂无内容</text>
+</view>

@@ -1,0 +1,5 @@
+<view class='container'>
+  <block wx:for="list" wx:for-item="item" wx:for-index="index" wx:key="index">
+    <mesTemp></mesTemp>
+  </block>
+</view>

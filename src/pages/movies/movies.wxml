@@ -1,0 +1,14 @@
+<import src="../../template/list-template/list-template.wxml" />
+
+<!--主体部分-->
+<view class="container">
+    <view class="list">
+        <template is="listTemplate" data="{{...hot}}" />
+    </view>
+    <view class="list">
+        <template is="listTemplate" data="{{...soon}}" />
+    </view>
+    <!-- <view class="list">
+        <template is="listTemplate" data="{{...top}}" />
+    </view> -->
+</view>

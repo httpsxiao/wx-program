@@ -1,0 +1,9 @@
+<view class="mes-container">
+  <view class='header'>
+    <text class='name'>name</text>
+    <text>2018-04-05</text>
+  </view>
+  <view class='main'>
+  </view>
+  <view class='footer' catchtap="onclick">底部</view>
+</view>

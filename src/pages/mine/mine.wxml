@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="item">
+    <view>推荐给好友</view>
+    <view class="more-image">
+      <image src="/images/icon/arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view>我要留言</view>
+    <view class="more-image">
+      <image src="/images/icon/arrow.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view>打赏开发者</view>
+    <view class="more-image">
+      <image src="/images/icon/arrow.png"></image>
+    </view>
+  </view>
+</view>

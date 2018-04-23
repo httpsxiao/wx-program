@@ -1,0 +1,9 @@
+@import "../../template/list-template/list-template.wxss";
+
+.container {
+    background-color: #f2f2f2;
+}
+
+.list {
+    margin-bottom: 30rpx;
+}

@@ -1,0 +1,44 @@
+@import "../../template/panel-template/panel-template.wxss";
+
+.search {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80rpx;
+  background-color: #f2f2f2;
+}
+
+.search-icon {
+  margin: auto 0 auto 20rpx;
+}
+
+.placeholder {
+  font-size: 14px;
+  color: #d1d1d1;
+  margin-left: 20rpx;
+}
+
+.search input {
+  width: 620rpx;
+  height: 100%;
+  font-size: 28rpx;
+  margin-left: 20px;
+}
+
+.search-panel {
+  position: absolute;
+  top: 80rpx;
+}
+
+.no-search-panel {
+  position: absolute;
+  width: 100%;
+  top: 80rpx;
+  text-align: center;
+  padding-top: 300rpx;
+}
+
+.no-search-panel text {
+  font-size: 60rpx;
+  color: #999;
+}

@@ -1,0 +1,33 @@
+page {
+  background-color: #f6f6f6;
+}
+.container {
+  padding-top: 50rpx;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #626262;
+  background-color: #fff;
+  padding: 0 30rpx;
+  border-bottom: 1px solid #ececec;
+}
+.item:first-child {
+  border-top: 1px solid #ececec;
+}
+.item text {
+  flex: 1;
+  font-size: 40rpx;
+}
+.item .more-image {
+  width: 60rpx;
+  height: 40rpx;
+}
+.item .more-image image {
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+}

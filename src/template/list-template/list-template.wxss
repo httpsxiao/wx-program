@@ -1,0 +1,40 @@
+@import "../per-template/per-template.wxss";
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.box {
+  margin: 0 auto 20rpx;
+}
+
+.list-head {
+  padding: 30rpx 20rpx 22rpx;
+}
+
+.list-desc {
+  font-size: 24rpx;
+}
+
+.list-more {
+  float:right;
+}
+
+.more-text {
+  color: #1f4ba5;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.more-image {
+  width: 9rpx;
+  height: 16rpx;
+  vertical-align: middle;
+}
+
+.movies {
+  display: flex;
+  flex-direction: row;
+}
