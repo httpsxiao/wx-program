@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{},{},{}]
+    mesList: [{
+      name: 'my name',
+      time: '04-25 20:11',
+      content: 'this is my message'
+    }, {
+      name: 'his name',
+      time: '03-28 10:45',
+      content: 'hello world'
+    }]
   },
 
   /**
