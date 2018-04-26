@@ -1,0 +1,12 @@
+<view class="write-container">
+  <view class="header">
+    <textarea placeholder="说点什么吧..." maxlength="100" bindinput="changeText" value="{{text}}"></textarea>
+  </view>
+  <view class="main">
+    <view class="site"></view>
+    <view class="count">100字</view>
+  </view>
+  <view class="footer">
+    <button type="primary" disabled="{{!allowBtn}}" bindtap="addMes">提交</button>
+  </view>
+</view>

@@ -1,13 +1,13 @@
 function getHot(arr) {
-  return arr.sort((a, b) => {return b.date - a.date})
+  return arr.sort((a, b) => { return b.date - a.date })
 }
 
 function getSoon(arr) {
-  return arr.sort((a, b) => {return a.date - b.date})
+  return arr.sort((a, b) => { return a.date - b.date })
 }
 
 function getTop(arr) {
-  return arr.sort((a, b) => {return b.average - a.average})
+  return arr.sort((a, b) => { return b.average - a.average })
 }
 
 function getDetail(arr, id) {
@@ -21,13 +21,15 @@ function getDetail(arr, id) {
 }
 
 function searchMovie(arr, text) {
-  var res = []
-  arr.forEach((item) => {
-    if (item.title.indexOf(text) > -1) {
-      res.push(item)
-    }
-  })
-  return res
+  return arr.filter(item => item.title.indexOf(text) > -1)
+}
+
+function getMes(arr) {
+  return arr.sort((a,b) => { return b.id - a.id })
+}
+
+function polyTime(num) {
+  return num > 9 ? '' + num : `0${num}`
 }
 
 module.exports = {
@@ -35,5 +37,7 @@ module.exports = {
   getSoon,
   getTop,
   getDetail,
-  searchMovie
+  searchMovie,
+  getMes,
+  polyTime
 }

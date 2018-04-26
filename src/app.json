@@ -6,7 +6,8 @@
     "pages/search/search",
     "pages/more/more",
     "pages/detail/detail",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/write/write"
   ],
   "window": {
     "navigationBarBackgroundColor": "#afe565"

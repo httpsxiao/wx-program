@@ -19,12 +19,12 @@ var mesData = JSON.parse(fs.readFileSync('./data/mes.json'))
 app.use(bodyParser.json())
 
 app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "*");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("X-Powered-By",' 3.2.1')
-    res.header("Content-Type", "application/json;charset=utf-8");
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("X-Powered-By",' 3.2.1')
+  res.header("Content-Type", "application/json;charset=utf-8");
+  next();
 })
 
 // async function queryMysql (sql) {
@@ -78,7 +78,33 @@ app.get('/mes/all', function (req, res) {
   var start = +req.query.start || 0
   var count = +req.query.count || 5
 
+  res.send(utils.getMes(mesData).slice(start, start + count))
 })
+
+app.post('/mes/add', function (req, res) {
+  var name = req.body.name
+  var content = req.body.content
+  var date = new Date()
+  var id = date.getTime()
+  var year = date.getFullYear()
+  var month =  utils.polyTime(date.getMonth())
+  var day =  utils.polyTime(date.getDate())
+  var hours =  utils.polyTime(date.getHours())
+  var minutes =  utils.polyTime(date.getMinutes())
+  var time = `${year}-${month}-${day} ${hours}:${minutes}`
+  mesData.push({
+    id,
+    name,
+    time,
+    content
+  })
+
+  fs.writeFile('./data/mes.json', JSON.stringify(mesData), (err) => {
+    if (err) throw err;
+    res.send({ errno: 0 })
+  })
+})
+
 app.listen(9999, function () {
   console.log('App listening on port 9999')
 })

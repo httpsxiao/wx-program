@@ -5,3 +5,20 @@ page {
 .container {
   padding-top: 30rpx;
 }
+.container .write {
+  position: fixed;
+  bottom: 100rpx;
+  right: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: #ecec9a;
+  border: 1px solid #ff8a2a;
+}
+.container .write image {
+  width: 60rpx;
+  height: 60rpx;
+}
