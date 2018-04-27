@@ -100,10 +100,26 @@ app.post('/mes/add', function (req, res) {
   })
 
   fs.writeFile('./data/mes.json', JSON.stringify(mesData), (err) => {
-    if (err) throw err;
-    res.send({ errno: 0 })
+    if (err) {
+      res.send({ errno: 1001 })
+    }else {
+      res.send({ errno: 0 })
+    }
   })
 })
+
+app.post('/mes/delete', function (req, res) {
+  var id = req.body.id
+  var newMesData = utils.removeMes(mesData, id)
+
+  fs.writeFile('./data/mes.json', JSON.stringify(newMesData), (err) => {
+    if (err) {
+      res.send({ errno: 1001 })
+    }else {
+      res.send({ errno: 0 })
+    }
+  })
+}
 
 app.listen(9999, function () {
   console.log('App listening on port 9999')

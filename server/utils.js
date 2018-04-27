@@ -32,6 +32,10 @@ function polyTime(num) {
   return num > 9 ? '' + num : `0${num}`
 }
 
+function removeMes(arr, id) {
+  return arr.fliter(item => item.id !== id)
+}
+
 module.exports = {
   getHot,
   getSoon,
@@ -39,5 +43,6 @@ module.exports = {
   getDetail,
   searchMovie,
   getMes,
+  removeMes,
   polyTime
 }
