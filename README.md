@@ -3,9 +3,9 @@ wechat miniprogram -- Movie Information System
 
 原生微信小程序实现电影网站，实现电影信息排名，搜索，留言，其他等一些功能。
 
-##学习心得: 
+## 学习心得: 
 
-####1. 小程序组件
+#### 1. 小程序组件
 
 小程序自从 1.6.3 版本之后开始支持组件化编程，每个组件和页面一样，也是由 js、json、wxml、wxss 组成，只是其中的 js 调用的 api 是`Component`，不是`Page`。
 
@@ -42,12 +42,12 @@ Component({
 })
 ```
 
-A 页面需要修改在 js，json，wxml 文件使用B
+A 页面需要修改在 js，json，wxml 文件使用B，json文件中`usingComponents`值B组件的路径，名字自定义用于在 wxml 中引用
 
 ``` json
 {
   "usingComponents": {
-    "B": "/components/B/B"   // B组件的路径，名字自定义用于在 wxml 中引用
+    "B": "/components/B/B"
   }
 }
 ```
