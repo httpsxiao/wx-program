@@ -9,19 +9,15 @@ Component({
       value: {}
     }
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
+    name: 'test'
   },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
-    onclick: function(){
-      console.log(1111)
+    tapDelete (e) {
+      this.triggerEvent('click_delete', { id: e.currentTarget.dataset.mesId })
+    },
+    onclick () {
+      console.log(11111)
     }
   }
 })

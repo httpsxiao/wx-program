@@ -10,34 +10,49 @@
   box-shadow: 0 0 16rpx #333;
   margin: 0 auto 20rpx;
 }
-
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.left {
   display: flex;
   align-items: flex-start;
   margin-bottom: 10rpx;
 }
-.header .avator {
+.left .avator {
   margin-right: 30rpx;
 }
-.header .avator image {
+.left .avator image {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
 }
-.header .detail {
+.left .detail {
   display: flex;
   flex-direction: column;
   font-size: 24rpx;
 }
-.header .detail .name {
+.left .detail .name {
   font-size: 32rpx;
   color: #338af9;
 }
-.header .detail .time {
+.left .detail .time {
   color: #999;
 }
-
-.footer {
+.header .right {
+  font-size: 24rpx;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+}
+.header .right .delete {
+  color: red;
+}
+.header .right .delete icon {
+  vertical-align: top;
+  margin-right: 4rpx;
+}
+.main {
   height: 150rpx;
   font-size: 24rpx;
 }

@@ -15,33 +15,36 @@ Page({
   onLoad (options) {
   },
   addMes () {
-    // wx.showLoading({ mask: true })
+    wx.showLoading({ mask: true })
     wx.request({
       url: `${app.data.base}/mes/add`,
       method: 'POST',
       data: {
-        name: 'test',
+        name: 'test2',
         content: this.data.text
       },
       header: {
         "Content-Type": "application/json"
       },
       success: res => {
-        // wx.hideLoading()
-        if (res.errno * 1 === 0) {
-          // this.setData({ text: '' })
-          // this.setData({ allowBtn: false})
-          // wx.showToast({
-          //   title: '留言成功',
-          //   icon: 'success'
-          // })
-          console.log(ss)
+        wx.hideLoading()
+        if (res.data.errno * 1 === 0) {
+          this.setData({
+            text: '',
+            allowBtn: false
+          })
+          wx.showToast({
+            title: '留言成功',
+            icon: 'success'
+          })
         }
       }
     })
   },
   changeText (e) {
-    this.setData({ text: e.detail.value })
-    this.setData({ allowBtn: this.data.text.length > 0 })
+    this.setData({
+      text: e.detail.value,
+      allowBtn: this.data.text.length > 0
+    })
   }
 })

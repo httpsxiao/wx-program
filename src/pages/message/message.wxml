@@ -1,6 +1,6 @@
 <view class="container">
   <block wx:for="{{mesList}}" wx:for-index="index" wx:key="index">
-    <mesTemp mesData="{{item}}"></mesTemp>
+    <mesTemp mesData="{{item}}" bind:click_delete="delete"></mesTemp>
   </block>
   <view class="write" bindtap="goWrite">
     <image src="../../images/icon/write.png"/>

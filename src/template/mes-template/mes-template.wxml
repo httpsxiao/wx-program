@@ -1,14 +1,19 @@
 <view class="mes-container">
-  <view class='header'>
-    <view class="avator">
-      <image src="../../images/leaves.png"/>
+  <view class="header">
+    <view class='left'>
+      <view class="avator">
+        <image src="../../images/leaves.png"/>
+      </view>
+      <view class="detail">
+        <text class="name">{{mesData.name}}</text>
+        <text class="time">{{mesData.time}}</text>
+      </view>
     </view>
-    <view class="detail">
-      <text class="name">{{mesData.name}}</text>
-      <text class="time">{{mesData.time}}</text>
+    <view class="right" data-mes-id="{{mesData.id}}" bindtap="tapDelete">
+      <view class="delete" wx:if="{{mesData.name === name}}"><icon type="cancel" size="16"></icon>删除</view>
     </view>
   </view>
   <view class='main'>
+    <view class='footer'>{{mesData.content}}</view>
   </view>
-  <view class='footer' catchtap="onclick">{{mesData.content}}</view>
 </view>
