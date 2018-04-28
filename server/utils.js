@@ -1,23 +1,18 @@
 function getHot(arr) {
-  return arr.sort((a, b) => { return b.date - a.date })
+  return arr.sort((a, b) => b.date - a.date)
 }
 
 function getSoon(arr) {
-  return arr.sort((a, b) => { return a.date - b.date })
+  return arr.sort((a, b) => a.date - b.date)
 }
 
 function getTop(arr) {
-  return arr.sort((a, b) => { return b.average - a.average })
+  return arr.sort((a, b) => b.average - a.average)
 }
 
 function getDetail(arr, id) {
-  var res = []
-  arr.forEach((item) => {
-    if (item.id === id) {
-      res.push(item)
-    }
-  })
-  return res
+  console.log(arr)
+  return arr.filter(item => item.id === id)
 }
 
 function searchMovie(arr, text) {
@@ -25,7 +20,7 @@ function searchMovie(arr, text) {
 }
 
 function getMes(arr) {
-  return arr.sort((a,b) => { return b.id - a.id })
+  return arr.sort((a,b) => b.id - a.id)
 }
 
 function polyTime(num) {
@@ -33,7 +28,7 @@ function polyTime(num) {
 }
 
 function removeMes(arr, id) {
-  return arr.fliter(item => item.id !== id)
+  return arr.filter(item => item.id !== id)
 }
 
 module.exports = {
