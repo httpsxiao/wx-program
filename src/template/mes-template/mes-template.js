@@ -1,4 +1,5 @@
-// template/mes-template/mes-template.js
+var app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -10,7 +11,7 @@ Component({
     }
   },
   data: {
-    name: 'test'
+    name: app.data.nickName
   },
   methods: {
     tapDelete (e) {

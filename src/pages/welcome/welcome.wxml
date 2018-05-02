@@ -1,6 +1,6 @@
 <view class="wel-container">
-    <image class="wel-logo" src="/images/leaves.png"></image>
-    <view class="btn-box" bindtap="btnTap">
-        <text class="btn">查看电影</text>
-    </view>
+  <image class="wel-logo" src="/images/leaves.png"></image>
+  <view class="btn-box" bindtap="btnTap">
+    <text class="btn">查看电影</text>
+  </view>
 </view>

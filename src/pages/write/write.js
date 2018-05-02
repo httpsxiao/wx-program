@@ -20,7 +20,7 @@ Page({
       url: `${app.data.base}/mes/add`,
       method: 'POST',
       data: {
-        name: 'test2',
+        name: app.data.nickName,
         content: this.data.text
       },
       header: {
