@@ -1,73 +1,59 @@
-// pages/mine/mine.js
+var app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
+  gowrite () {
+    wx.navigateTo({
+      url: '../write/write'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    wx.authorize({
-      scope: 'scope.userInfo',
-      success() {
-        console.log(111)
-        var info = wx.getUserInfo()
-        console.log(info)
+  goMymes () {
+    wx.navigateTo({
+      url: '../mymes/mymes'
+    })
+  },
+  contact () {
+    wx.showActionSheet({
+      itemList: [
+        '微信',
+        '邮箱'
+      ],
+      success (res) {
+        switch (res.tapIndex) {
+          case 0: 
+            wx.previewImage({
+              urls: [`${app.data.base}/images/me.jpg`]
+            })
+            break
+          case 1:
+            wx.showModal({
+              title: '邮箱联系',
+              content: '可以发邮件至 xiao9971@126.com 与我联系~',
+              showCancel: false
+            })
+            break
+          default:
+            break
+        }
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage (options) {
+    if (options.from === 'button') {
+      return {
+        title: '七小影',
+        path: '/pages/movies/movies',
+        success (res) {
+          wx.showShareMenu({
+            withShareTicket: true
+          })
+        },
+        fail () {
+          console.log('share fail')
+        }
+      }
+    }
   }
 })

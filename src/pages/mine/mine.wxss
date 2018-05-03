@@ -5,6 +5,7 @@ page {
   padding-top: 50rpx;
 }
 .item {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,6 +15,14 @@ page {
   background-color: #fff;
   padding: 0 30rpx;
   border-bottom: 1px solid #ececec;
+}
+.item .share {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
 }
 .item:first-child {
   border-top: 1px solid #ececec;
