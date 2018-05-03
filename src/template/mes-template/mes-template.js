@@ -11,14 +11,16 @@ Component({
     }
   },
   data: {
-    name: app.data.nickName
+    curName: ''
+  },
+  ready () {
+    this.setData({
+      curName: app.data.nickName
+    })
   },
   methods: {
     tapDelete (e) {
       this.triggerEvent('click_delete', { id: e.currentTarget.dataset.mesId })
-    },
-    onclick () {
-      console.log(11111)
     }
   }
 })
