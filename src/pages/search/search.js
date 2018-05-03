@@ -1,4 +1,4 @@
-var utils = require("../../utils/utils.js");
+var utils = require("../../utils/utils.js")
 var app = getApp()
 
 Page({
@@ -7,29 +7,28 @@ Page({
     userValue: '',
     movies: []
   },
-  onInput: function (event) {
+  onInput (event) {
     var text = event.detail.value
-    console.log(text)
     this.setData({
       userValue: text
     })
   },
-  onConfirm: function (event) {
+  onConfirm (event) {
     var text = this.data.userValue
     var searchUrl = app.data.base + "/movie/search?q=" + encodeURIComponent(text)
     utils.http(searchUrl, this.adjust)
   },
-  onCancel: function (event) {
+  onCancel (event) {
     this.setData({
       searchPanelShow: false,
       userValue: '',
       movies: []
     })
   },
-  adjust: function (data) {
+  adjust (data) {
     if (data.length === 0) { return }
     var result = []
-    data.forEach(function(item) {
+    data.forEach(item => {
       var title = item.title
       // 格式化title
       if (title.length >= 6) {
@@ -51,7 +50,7 @@ Page({
     })
   },
   // 跳转到电影详情
-  goDetail: function (event) {
+  goDetail(event) {
     var movieId = event.currentTarget.dataset.movieid
     wx.navigateTo({
       url: '../detail/detail?id=' + movieId

@@ -1,17 +1,17 @@
-var utils = require("../../utils/utils.js");
-var app = getApp();
+var utils = require("../../utils/utils.js")
+var app = getApp()
 
 Page({
   data: {
     movie: {}
   },
-  onLoad: function (options) {
-    var movieId = options.id;
-    var url = app.data.base + '/movie/detail?id=' + movieId;
-    utils.http(url, this.adjust);
+  onLoad (options) {
+    var movieId = options.id
+    var url = app.data.base + '/movie/detail?id=' + movieId
+    utils.http(url, this.adjust)
   },
 
-  adjust: function (data) {
+  adjust (data) {
     // 如果没有数据返回则直接return
     if (!data) {
       return
@@ -40,9 +40,8 @@ Page({
   },
 
 // 图片预览
-  viewMoviePostImg: function (event) {
-    console.log(event.currentTarget.dataset.src);
-    var src = event.currentTarget.dataset.src;
+  viewMoviePostImg (event) {
+    var src = event.currentTarget.dataset.src
     wx.previewImage({
       current: src, // 当前显示图片的链接，不填则默认为 urls 的第一张
       urls: [src] // 预览图片的链接列表
