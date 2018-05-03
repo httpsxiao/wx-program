@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我的留言",
+  "usingComponents": {
+    "mesTemp": "/template/mes-template/mes-template"
+  }
+}
