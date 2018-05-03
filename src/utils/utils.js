@@ -22,6 +22,7 @@ function http(url, callback) {
             "Content-Type": "json"
         },
         success: function (res) {
+            console.log(JSON.stringify(res))
             // success
             callback(res.data);
         },

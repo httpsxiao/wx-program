@@ -21,6 +21,7 @@ Page({
       method: 'POST',
       data: {
         name: app.data.nickName,
+        avatar: app.data.avatarUrl,
         content: this.data.text
       },
       header: {

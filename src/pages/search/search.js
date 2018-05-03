@@ -8,15 +8,16 @@ Page({
     movies: []
   },
   onInput: function (event) {
-    var text = event.detail.value;
+    var text = event.detail.value
+    console.log(text)
     this.setData({
       userValue: text
     })
   },
   onConfirm: function (event) {
-    var text = this.data.userValue;
-    var searchUrl = app.data.base + "/movie/search?q=" + text;
-    utils.http(searchUrl, this.adjust);
+    var text = this.data.userValue
+    var searchUrl = app.data.base + "/movie/search?q=" + encodeURIComponent(text)
+    utils.http(searchUrl, this.adjust)
   },
   onCancel: function (event) {
     this.setData({
@@ -27,12 +28,12 @@ Page({
   },
   adjust: function (data) {
     if (data.length === 0) { return }
-    var result = [];
+    var result = []
     data.forEach(function(item) {
-      var title = item.title;
+      var title = item.title
       // 格式化title
       if (title.length >= 6) {
-        title = title.slice(0, 6) + '...';
+        title = title.slice(0, 6) + '...'
       }
       var perMovie = {
         title: title,
@@ -41,19 +42,17 @@ Page({
         movieId: item.id,
         stars: utils.convertToStarsArray(item.stars)
       } 
-      result.push(perMovie);
+      result.push(perMovie)
     })
     // 绑定新加载的数据，先判断原来的数据是否为空
     this.setData({
       searchPanelShow: true,
       movies: result
-    });
-    wx.hideNavigationBarLoading();
-    wx.stopPullDownRefresh();
+    })
   },
   // 跳转到电影详情
   goDetail: function (event) {
-    var movieId = event.currentTarget.dataset.movieid;
+    var movieId = event.currentTarget.dataset.movieid
     wx.navigateTo({
       url: '../detail/detail?id=' + movieId
     })

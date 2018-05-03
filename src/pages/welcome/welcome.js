@@ -1,10 +1,11 @@
+var app = getApp()
+
 Page({
-  btnTap: function() {
-    wx.switchTab({
-      url:"../movies/movies"
+  onLoad () {
+    
+  },
+  goAuth () {
+    wx.openSetting({
     })
-    // wx.navigateTo({
-    //   url: "../movies/movies"
-    // });
   }
 })

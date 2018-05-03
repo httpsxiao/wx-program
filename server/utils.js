@@ -23,6 +23,10 @@ function getMes(arr) {
   return arr.sort((a,b) => b.id - a.id)
 }
 
+function getMesByName (arr, name) {
+  return arr.filter(item => item.name === name)
+}
+
 function polyTime(num) {
   return num > 9 ? '' + num : `0${num}`
 }
@@ -38,6 +42,7 @@ module.exports = {
   getDetail,
   searchMovie,
   getMes,
+  getMesByName,
   removeMes,
   polyTime
 }

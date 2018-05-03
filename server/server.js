@@ -38,11 +38,11 @@ async function writeFileData (path, data) {
 app.use(bodyParser.json())
 
 app.all('*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "*")
+  res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
   res.header("X-Powered-By",' 3.2.1')
-  res.header("Content-Type", "application/json;charset=utf-8");
+  res.header("Content-Type", "application/json;charset=utf-8")
   next();
 })
 
@@ -56,17 +56,17 @@ app.get('/movie/type/:type', function (req, res) {
     case 'hot':
       readFileData('./data/hot.json')
         .then(hotData => res.send(utils.getHot(hotData).slice(start, end)))
-      break;
+      break
     case 'soon':
       readFileData('./data/soon.json')
         .then(hotData => res.send(utils.getHot(hotData).slice(start, end)))
-      break;
+      break
     case 'top':
       readFileData('./data/top.json')
         .then(hotData => res.send(utils.getHot(hotData).slice(start, end)))
-      break;
+      break
     default:
-      break;
+      break
   }
 })
 
@@ -99,13 +99,24 @@ app.get('/mes/all', function (req, res) {
     .then(mesData => res.send(utils.getMes(mesData).slice(start, start + count)))
 })
 
+app.get('/mes/mymes', function (req, res) {
+  var start = +req.query.start || 0
+  var count = +req.query.count || 5
+  var name = req.query.name || ''
+  let result = []
+
+  readFileData('./data/mes.json')
+    .then(mesData => res.send(utils.getMes(mesData).slice(start, start + count)))
+})
+
 app.post('/mes/add', function (req, res) {
   var name = req.body.name
+  var avatar = req.body.avatar
   var content = req.body.content
   var date = new Date()
   var id = '' + date.getTime()
   var year = date.getFullYear()
-  var month =  utils.polyTime(date.getMonth())
+  var month =  utils.polyTime(date.getMonth() + 1)
   var day =  utils.polyTime(date.getDate())
   var hours =  utils.polyTime(date.getHours())
   var minutes =  utils.polyTime(date.getMinutes())
@@ -117,6 +128,7 @@ app.post('/mes/add', function (req, res) {
       arr.push({
         id,
         name,
+        avatar,
         time,
         content
       })
@@ -136,6 +148,6 @@ app.post('/mes/delete', function (req, res) {
     })
 })
 
-app.listen(9999, function () {
+app.listen(8888, function () {
   console.log('App listening on port 9999')
 })

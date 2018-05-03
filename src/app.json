@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/message/message",
-    "pages/welcome/welcome",
     "pages/movies/movies",
+    "pages/welcome/welcome",
+    "pages/message/message",
+    "pages/mymes/mymes",
     "pages/search/search",
     "pages/more/more",
     "pages/detail/detail",
