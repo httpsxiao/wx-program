@@ -8,12 +8,21 @@ Component({
     mesData: {
       type: Object,
       value: {}
+    },
+    type: {
+      type: String,
+      value: 'message'
+    },
+    num: {
+      type: String,
+      value: ''
     }
   },
   data: {
     curName: ''
   },
   ready () {
+    console.log(this.properties.type)
     this.setData({
       curName: app.data.nickName
     })

@@ -9,8 +9,11 @@
         <text class="time">{{mesData.time}}</text>
       </view>
     </view>
-    <view class="right" data-mes-id="{{mesData.id}}" bindtap="tapDelete">
+    <view class="right" data-mes-id="{{mesData.id}}" bindtap="tapDelete" wx:if="{{type != 'message'}}">
       <view class="delete" wx:if="{{mesData.name === curName}}"><icon type="cancel" size="16"></icon>删除</view>
+    </view>
+    <view class="right" wx:else>
+      <view class="floor">第 {{num}} 楼</view>
     </view>
   </view>
   <view class='main'>

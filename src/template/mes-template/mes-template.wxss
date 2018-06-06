@@ -48,6 +48,9 @@
 .header .right .delete {
   color: red;
 }
+.header .right .floor {
+  color: #999;
+}
 .header .right .delete icon {
   vertical-align: top;
   margin-right: 4rpx;

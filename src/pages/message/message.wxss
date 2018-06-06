@@ -12,13 +12,13 @@ page {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
   background-color: #ecec9a;
   border: 1px solid #ff8a2a;
 }
 .container .write image {
-  width: 60rpx;
-  height: 60rpx;
+  width: 70rpx;
+  height: 70rpx;
 }

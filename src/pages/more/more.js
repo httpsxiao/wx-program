@@ -31,15 +31,14 @@ Page({
       default:
         break
     }
-    console.log(dataUrl)
-    this.setData({
+    _this.setData({
       requestUrl: dataUrl
-    });
+    })
     utils.http(dataUrl + subUrl, this.adjust)
   },
 
   adjust (data) {
-    var result = [];
+    var result = []
     data.forEach(function(item) {
       var title = item.title
       // 格式化title

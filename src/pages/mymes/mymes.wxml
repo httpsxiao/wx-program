@@ -1,5 +1,5 @@
 <view class="container">
   <block wx:for="{{mesList}}" wx:for-index="index" wx:key="index">
-    <mesTemp mesData="{{item}}" bind:click_delete="delete"></mesTemp>
+    <mesTemp mesData="{{item}}" type="mymes" bind:click_delete="delete"></mesTemp>
   </block>
 </view>

@@ -123,7 +123,7 @@ app.get('/mes/mymes', function (req, res) {
   let result = []
 
   readFileData('./data/mes.json')
-    .then(mesData => res.send(utils.getMes(mesData).slice(start, start + count)))
+    .then(mesData => res.send(utils.getMesByName(mesData, name).slice(start, start + count)))
 })
 
 app.post('/mes/add', function (req, res) {
@@ -166,5 +166,5 @@ app.post('/mes/delete', function (req, res) {
 })
 
 app.listen(8888, function () {
-  console.log('App listening on port 9999')
+  console.log('App listening on port 8888')
 })

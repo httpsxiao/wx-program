@@ -6,11 +6,6 @@ Page({
       url: '../mycollect/mycollect'
     })
   },
-  gowrite () {
-    wx.navigateTo({
-      url: '../write/write'
-    })
-  },
   goMymes () {
     wx.navigateTo({
       url: '../mymes/mymes'
@@ -26,7 +21,7 @@ Page({
         switch (res.tapIndex) {
           case 0: 
             wx.previewImage({
-              urls: [`${app.data.base}/images/me.jpg`]
+              urls: [`${app.data.imgBase}/me.jpg`]
             })
             break
           case 1:
