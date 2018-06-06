@@ -1,14 +1,53 @@
-<import src="../../template/list-template/list-template.wxml" />
+<import src="../../template/per-template/per-template.wxml" />
 
 <!--主体部分-->
 <view class="container">
     <view class="list">
-        <template is="listTemplate" data="{{...hot}}" />
+      <view class="box">
+        <view class="list-head">
+            <text class="list-desc">热映中</text>
+            <view catchtap="goMore" class="list-more" data-type="hot">
+                <text class="more-text">更多</text>
+                <image class="more-image" src="/images/icon/arrow-right.png"></image>
+            </view>
+        </view>
+        <view class="movies">
+            <block wx:for="{{hot}}" wx:for-item="movie" wx:for-index="idx" wx:key="idx">
+                <template is="perTemplate" data="{{...movie}}" />
+            </block>
+        </view>
+      </view>
     </view>
     <view class="list">
-        <template is="listTemplate" data="{{...soon}}" />
+      <view class="box">
+        <view class="list-head">
+            <text class="list-desc">将上映</text>
+            <view catchtap="goMore" class="list-more" data-type="soon">
+                <text class="more-text">更多</text>
+                <image class="more-image" src="/images/icon/arrow-right.png"></image>
+            </view>
+        </view>
+        <view class="movies">
+            <block wx:for="{{soon}}" wx:for-item="movie" wx:for-index="idx" wx:key="idx">
+                <template is="perTemplate" data="{{...movie}}" />
+            </block>
+        </view>
+      </view>
     </view>
-    <!-- <view class="list">
-        <template is="listTemplate" data="{{...top}}" />
-    </view> -->
+    <view class="list">
+      <view class="box">
+        <view class="list-head">
+            <text class="list-desc">排行榜</text>
+            <view catchtap="goMore" class="list-more" data-type="top">
+                <text class="more-text">更多</text>
+                <image class="more-image" src="/images/icon/arrow-right.png"></image>
+            </view>
+        </view>
+        <view class="movies">
+            <block wx:for="{{top}}" wx:for-item="movie" wx:for-index="idx" wx:key="idx">
+                <template is="perTemplate" data="{{...movie}}" />
+            </block>
+        </view>
+      </view>
+    </view>
 </view>

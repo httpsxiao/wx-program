@@ -2,7 +2,7 @@
 
 <!--搜索框-->
 <view class="search">
-    <input type="text" maxlength="10" placeholder="黑豹" placeholder-class="placeholder" value="{{userValue}}" bindinput="onInput" bindconfirm="onConfirm" />
+    <input type="text" maxlength="10" placeholder-class="placeholder" value="{{userValue}}" bindinput="onInput" bindconfirm="onConfirm" />
     <icon type="cancel" class="search-icon" size="22" color="orange" wx:if="{{searchPanelShow}}" bindtap="onCancel"></icon>
     <icon type="search" class="search-icon" size="22" color="orange" wx:else bindtap="onConfirm"></icon>
 </view>

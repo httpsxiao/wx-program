@@ -50,7 +50,6 @@ app.get('/movie/type/:type', function (req, res) {
   var start = +req.query.start || 0
   var count = +req.query.count || 3
   var end = start + count
-  var data = []
 
   switch(req.params.type) {
     case 'hot':
@@ -58,12 +57,12 @@ app.get('/movie/type/:type', function (req, res) {
         .then(hotData => res.send(utils.getHot(hotData).slice(start, end)))
       break
     case 'soon':
-      readFileData('./data/soon.json')
-        .then(hotData => res.send(utils.getHot(hotData).slice(start, end)))
+      readFileData('./data/hot.json')
+        .then(hotData => res.send(utils.getSoon(hotData).slice(start, end)))
       break
     case 'top':
-      readFileData('./data/top.json')
-        .then(hotData => res.send(utils.getHot(hotData).slice(start, end)))
+      readFileData('./data/hot.json')
+        .then(hotData => res.send(utils.getTop(hotData).slice(start, end)))
       break
     default:
       break
@@ -73,9 +72,9 @@ app.get('/movie/type/:type', function (req, res) {
 app.get('/movie/detail', function (req, res) {
   var movieId = req.query.id
 
-  Promise.all([readFileData('./data/hot.json'), readFileData('./data/soon.json'), readFileData('./data/top.json')])
+  Promise.all([readFileData('./data/hot.json'), readFileData('./data/top.json')])
     .then(allData => {
-      let result = utils.getDetail(allData[0].concat(allData[1], allData[2]), movieId)
+      let result = utils.getDetail(allData[0].concat(allData[1]), movieId)
       res.send(result)
     })
 })
@@ -83,10 +82,28 @@ app.get('/movie/detail', function (req, res) {
 app.get('/movie/search', function (req, res) {
   var text = req.query.q
 
-  Promise.all([readFileData('./data/hot.json'), readFileData('./data/soon.json'), readFileData('./data/top.json')])
+  Promise.all([readFileData('./data/hot.json'), readFileData('./data/top.json')])
     .then(allData => {
-      let result = utils.searchMovie(allData[0].concat(allData[1], allData[2]), text)
+      let result = utils.searchMovie(allData[0].concat(allData[1]), text)
       res.send(result)
+    })
+})
+
+app.post('/movie/collect', function (req, res) {
+  var collects = JSON.parse(req.body.collects)
+  var start = +req.query.start || 0
+  var count = +req.query.count || 3
+  var end = start + count
+  var movies = []
+
+  readFileData('./data/hot.json')
+    .then(data => {
+      data.forEach(item => {
+        if(collects.indexOf(item.id) > -1) {
+          movies.push(item)
+        }
+      })
+      res.send(movies.slice(start, end))
     })
 })
 

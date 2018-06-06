@@ -1,0 +1,3 @@
+<import src="../../template/panel-template/panel-template.wxml" />
+
+<template is="panelTemplate" data="{{movies}}"/>

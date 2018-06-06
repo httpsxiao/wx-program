@@ -8,13 +8,14 @@
     "pages/more/more",
     "pages/detail/detail",
     "pages/mine/mine",
-    "pages/write/write"
+    "pages/write/write",
+    "pages/mycollect/mycollect"
   ],
   "window": {
     "navigationBarBackgroundColor": "#afe565"
   },
   "tabBar": {
-    "borderStyle": "white",
+    "borderStyle": "#afe565",
     "color": "#666",
     "selectedColor": "#afe565",
     "list": [

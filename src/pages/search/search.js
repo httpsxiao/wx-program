@@ -37,7 +37,7 @@ Page({
       var perMovie = {
         title: title,
         average: item.average,
-        coverageUrl: '../../images/movies/' + item.image + '.jpg',
+        coverageUrl: app.data.imgBase + '/movies/' + item.id + '.jpg',
         movieId: item.id,
         stars: utils.convertToStarsArray(item.stars)
       } 

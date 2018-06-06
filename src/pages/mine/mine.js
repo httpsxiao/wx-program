@@ -1,6 +1,11 @@
 var app = getApp()
 
 Page({
+  goMyCollect () {
+    wx.navigateTo({
+      url: '../mycollect/mycollect'
+    })
+  },
   gowrite () {
     wx.navigateTo({
       url: '../write/write'

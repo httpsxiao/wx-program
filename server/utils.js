@@ -1,9 +1,21 @@
 function getHot(arr) {
-  return arr.sort((a, b) => b.date - a.date)
+  var d = new Date()
+  var year = d.getFullYear()
+  var month = polyTime(+d.getMonth() + 1)
+  var day = polyTime(d.getDate())
+  var cur = `${year}${month}${day}`
+  var newArr = arr.filter(item => +item.date <= +cur)
+  return newArr.sort((a, b) => b.date - a.date)
 }
 
 function getSoon(arr) {
-  return arr.sort((a, b) => a.date - b.date)
+  var d = new Date()
+  var year = d.getFullYear()
+  var month = polyTime(+d.getMonth() + 1)
+  var day = polyTime(d.getDate())
+  var cur = `${year}${month}${day}`
+  var newArr = arr.filter(item => +item.date > +cur)
+  return newArr.sort((a, b) => a.date - b.date)
 }
 
 function getTop(arr) {
@@ -11,7 +23,6 @@ function getTop(arr) {
 }
 
 function getDetail(arr, id) {
-  console.log(arr)
   return arr.filter(item => item.id === id)
 }
 

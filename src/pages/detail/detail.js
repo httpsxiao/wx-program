@@ -3,12 +3,34 @@ var app = getApp()
 
 Page({
   data: {
-    movie: {}
+    movie: {},
+    isCollect: false,
+    movieId: '',
   },
   onLoad (options) {
-    var movieId = options.id
-    var url = app.data.base + '/movie/detail?id=' + movieId
+    this.setData({
+      movieId: options.id
+    })
+    var url = app.data.base + '/movie/detail?id=' + options.id
+    var _this = this
     utils.http(url, this.adjust)
+    wx.getStorage({
+      key: 'collect',
+      success(res) {
+        let data = JSON.parse(res.data)
+        if (data.indexOf(options.id) > -1) {
+          _this.setData({
+            isCollect: true
+          })
+        }
+      },
+      fail(err){
+        wx.setStorage({
+          key: 'collect',
+          data: JSON.stringify([])
+        })
+      }
+    })
   },
 
   adjust (data) {
@@ -21,7 +43,7 @@ Page({
     var item = data[0]
 
     var movie = {
-      movieImg: '../../images/movies/' + item.image + '.jpg',
+      movieImg: app.data.imgBase + '/movies/' + item.id + '.jpg',
       country: item.country,
       title: item.title,
       wishCount: item.wish_count,
@@ -30,7 +52,9 @@ Page({
       genres: item.genres,
       stars: utils.convertToStarsArray(item.stars),
       average: item.average,
+      date: `${item.date.slice(0,4)}-${item.date.slice(4,6)}-${item.date.slice(6)}`,
       director: item.director,
+      directorImg: app.data.imgBase + '/director/' + item.id + '.jpg',
       casts: item.casts,
       summary: item.summary
     };
@@ -38,7 +62,47 @@ Page({
       movie: movie
     })
   },
-
+  collect () {
+    var _this = this
+    if (this.data.isCollect) {
+      let data = []
+      wx.getStorage({
+        key: 'collect',
+        success(res) {
+          data = JSON.parse(res.data)
+          let idx = data.indexOf(_this.data.movieId)
+          data.splice(idx, 1)
+          wx.setStorage({
+            key: 'collect',
+            data: JSON.stringify(data),
+            success() {
+              _this.setData({
+                isCollect: false
+              })
+            }
+          })
+        }
+      })
+    } else {
+      let data = []
+      wx.getStorage({
+        key: 'collect',
+        success(res) {
+          data = JSON.parse(res.data)
+          data.push(_this.data.movieId)
+          wx.setStorage({
+            key: 'collect',
+            data: JSON.stringify(data),
+            success() {
+              _this.setData({
+                isCollect: true
+              })
+            }
+          })
+        }
+      })
+    }
+  },
 // 图片预览
   viewMoviePostImg (event) {
     var src = event.currentTarget.dataset.src

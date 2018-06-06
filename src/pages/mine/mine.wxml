@@ -6,6 +6,12 @@
       <image src="/images/icon/arrow.png"></image>
     </view>
   </view>
+  <view class="item" bindtap="goMyCollect">
+    <view>我收藏的</view>
+    <view class="more-image">
+      <image src="/images/icon/arrow.png"></image>
+    </view>
+  </view>
   <view class="item" bindtap="gowrite">
     <view>发表感想</view>
     <view class="more-image">

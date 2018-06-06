@@ -7,11 +7,12 @@
         <text class="sub-title">{{movie.country+"·"+movie.year}}</text>
         <view class="like">
             <text class="highlight-font">{{movie.wishCount}}</text>
-            <text class="plain-font">人喜欢</text>
+            <text class="plain-font">人好评</text>
             <text class="highlight-font">{{movie.commentCount}}</text>
-            <text class="plain-font">条评论</text>
+            <text class="plain-font">人差评</text>
         </view>
     </view>
+    <view class="collect" catchtap="collect">{{isCollect?'已收藏':'收藏'}}</view>
     <image class="movie-img" src="{{movie.movieImg}}" data-src="{{movie.movieImg}}" catchtap="viewMoviePostImg" />
     <view class="summary">
         <view class="original-title">
@@ -26,8 +27,8 @@
             <text>{{movie.genres}}</text>
         </view>
         <view class="flex-row">
-            <text class="mark">导演</text>
-            <text>{{movie.director}}</text>
+            <text class="mark">时间</text>
+            <text>{{movie.date}}</text>
         </view>
         <view class="flex-row">
             <text class="mark">演员</text>
@@ -40,4 +41,11 @@
         <text class="summary-content">{{movie.summary}}</text>
     </view>
     <view class="hr"></view>
+    <view class="cast">
+        <text class="cast-font">导演</text>
+        <view class="cast-container">
+            <image class="cast-img" src="{{movie.directorImg}}"></image>
+            <text class="cast-name">{{movie.director}}</text>
+        </view>
+    </view>
 </view>

@@ -11,23 +11,27 @@ Page({
 
   onLoad (options) {
     var type = options.type
-    this.data.navTitle = type
+    var _this = this
     var dataUrl = ''
     var subUrl = '?start=0&count=10'
 
     switch (type) {
-      case "热映中":
+      case "hot":
         dataUrl = app.data.base + '/movie/type/hot'
-        break;
-      case "将上映":
+        _this.setData({navTitle: '正在热映'})
+        break
+      case "soon":
         dataUrl = app.data.base + '/movie/type/soon'
-        break;
-      case "排行榜":
+        _this.setData({navTitle: '即将上映'})
+        break
+      case "top":
         dataUrl = app.data.base + '/movie/type/top'
-        break;
+        _this.setData({navTitle: '排名靠前'})
+        break
       default:
-        break;
-    };
+        break
+    }
+    console.log(dataUrl)
     this.setData({
       requestUrl: dataUrl
     });
@@ -45,7 +49,7 @@ Page({
       var perMovie = {
         title: title,
         average: item.average,
-        coverageUrl: '../../images/movies/' + item.image + '.jpg',
+        coverageUrl: app.data.imgBase + '/movies/' + item.id + '.jpg',
         movieId: item.id,
         stars: utils.convertToStarsArray(item.stars)
       } 

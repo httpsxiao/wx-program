@@ -1,9 +1,10 @@
 App({
   data: {
-    // base: 'http://localhost:9999',
-    base: 'https://fuchyou.com/xiao',
+    base: 'http://localhost:8888',
+    // base: 'https://xiaoqqq.cn',
+    imgBase: 'https://www.xiaoqqq.cn/movieserver/images',
     nickName: '游客',
-    avatarUrl: 'https://fuchyou.com/xiao/images/leaves',
+    avatarUrl: 'https://xiaoqqq.cn/images/leaves.png',
     isLogin: false
   },
   onShow () {
