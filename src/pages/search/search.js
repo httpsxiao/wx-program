@@ -5,7 +5,8 @@ Page({
   data: {
     searchPanelShow: false,
     userValue: '',
-    movies: []
+    movies: [],
+    message: '请查找您想要的'
   },
   onInput (event) {
     var text = event.detail.value
@@ -26,7 +27,12 @@ Page({
     })
   },
   adjust (data) {
-    if (data.length === 0) { return }
+    if (data.length === 0) {
+      this.setData({
+        message: '暂无相关内容'
+      })
+      return
+    }
     var result = []
     data.forEach(item => {
       var title = item.title

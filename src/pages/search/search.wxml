@@ -12,5 +12,5 @@
 </view>
 
 <view class="no-search-panel" wx:else>
-    <text>请查找您想要的</text>
+    <text>{{message}}</text>
 </view>

@@ -141,13 +141,15 @@ app.post('/mes/add', function (req, res) {
 
   readFileData('./data/mes.json')
     .then(mesData => {
-      let arr = utils.getMes(mesData)
+      var floor = +mesData[mesData.length - 1].floor + 1 + ''
+      let arr = mesData
       arr.push({
         id,
         name,
         avatar,
         time,
-        content
+        content,
+        floor
       })
       writeFileData('./data/mes.json', arr)
         .then(result => res.send(result))

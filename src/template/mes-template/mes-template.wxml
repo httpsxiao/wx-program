@@ -13,7 +13,7 @@
       <view class="delete" wx:if="{{mesData.name === curName}}"><icon type="cancel" size="16"></icon>删除</view>
     </view>
     <view class="right" wx:else>
-      <view class="floor">第 {{num}} 楼</view>
+      <view class="floor">第 {{mesData.floor}} 楼</view>
     </view>
   </view>
   <view class='main'>

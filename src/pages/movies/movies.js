@@ -11,7 +11,7 @@ Page({
     var hotUrl = app.data.base + '/movie/type/hot' + queryStr
     var soonUrl = app.data.base + '/movie/type/soon' + queryStr
     var topUrl = app.data.base + '/movie/type/top' + queryStr
-
+    wx.showLoading({ mask: true })
     this.getMovie(hotUrl, 'hot')
     this.getMovie(soonUrl, 'soon')
     this.getMovie(topUrl, 'top')
@@ -28,6 +28,7 @@ Page({
       },
       success: function (res) {
         _this.adjust(res.data, type)
+        _this.isShowMask()
       },
       fail: function () {
         console.log("request fail")
@@ -57,7 +58,11 @@ Page({
       [type]: movies
     })
   },
-
+  isShowMask: function() {
+    if (this.data.hot.length > 0 && this.data.hot.length > 0 && this.data.hot.length > 0) {
+      wx.hideLoading()
+    }
+  },
 // 点击更多
   goMore: function (event) {
     var type = event.currentTarget.dataset.type
