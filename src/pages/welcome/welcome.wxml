@@ -1,7 +1,7 @@
 <view class="wel-container">
   <image class="wel-logo" src="/images/leaves.png"></image>
   <view class="btn-box">
-    需要点击授权才能使用该小程序
+    请先授权(昵称、头像)再使用
   </view>
   <button open-type="getUserInfo" bindgetuserinfo="userInfoHandler">点我授权</button>
 </view>
